@@ -1,0 +1,21 @@
+<html>
+<style>
+	a {
+	color: orange;}
+</style>	
+	<script src="https://tcs-1f6-dev-ed.develop.my.site.com/lightning/lightning.out.js"></script>
+	<div data-lightning-out="true"></div>
+	
+		<script>
+		const appName = 'c:donationFortmApp';
+		const componentName = 'c:donationForm';
+		const lightningEndpoint = 'https://tcs-1f6-dev-ed.develop.my.site.com';
+		const targetElement = document.querySelector("[data-lightning-out]");
+		const componentAttributes = {};
+		
+		$lightning.use(
+		appName,function(){
+			$lightning.createComponent(componentName,componentAttributes,function (cmp){console.log('lightning component created');
+			})},lightningEndpoint);
+		</script>
+</html>

@@ -1,21 +1,30 @@
 <html>
 <style>
-	a {
-	color: orange;}
+        .slds-visual-picker_vertical .slds-visual-picker__figure {
+            height: inherit !important;
+        }
+
+        .runtime_appointmentbookingFlowLocation .slds-visual-picker_vertical {
+            display: inline-flex !important;
+        }
 </style>	
-	<script src="https://tcs-1f6-dev-ed.develop.my.site.com/lightning/lightning.out.js"></script>
-	<div data-lightning-out="true"></div>
+	<script src="https://jlr-360--gvecdev.sandbox.my.site.com/lightning/lightning.out.js"></script>
+	<div id="lexcontainer">
+		<p>Appointment:JLR_Inbound_New_Guest_Appointment</p>
+	</div>
 	
-		<script>
-		const appName = 'c:donationFortmApp';
-		const componentName = 'c:donationForm';
-		const lightningEndpoint = 'https://tcs-1f6-dev-ed.develop.my.site.com';
-		const targetElement = document.querySelector("[data-lightning-out]");
-		const componentAttributes = {};
-		
-		$Lightning.use(
-		appName,function(){
-			$Lightning.createComponent(componentName,componentAttributes,function (cmp){console.log('lightning component created');
-			})},lightningEndpoint);
-		</script>
+<script>
+    $Lightning.use("runtime_appointmentbooking:lightningOutGuest",
+        function() {                  // Callback once framework and app load
+            $Lightning.createComponent(
+                "lightning:flow",    // top-level component of your app
+                { },    // attributes to set on the component when created
+                "lexcontainer",    // the DOM location to insert the component
+                function(component) {            // API name of the Flow
+                    component.startFlow("JLR_Inbound_New_Guest_Appointment");
+                }
+            );
+        },    'https://jlr-360--gvecdev.sandbox.my.site.com/AutomotiveCloud'  // Site endpoint
+    );
+</script>
 </html>
